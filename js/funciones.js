@@ -1,8 +1,9 @@
+// URIBE PARACO HP!
 //===
 // VARIABLES
 //===
 const SIETE_AGOSTO = new Date('08/07/2022 12:00 PM'); //MES/DIAS/AÑO
-// DOM for render
+
 const SPAN_ANIOS = document.getElementById('anios');
 const SPAN_MESES = document.getElementById('meses');
 const SPAN_DIAS = document.getElementById('dias');
@@ -11,7 +12,7 @@ const SPAN_MINUTOS = document.getElementById('minutos');
 const SPAN_SEGUNDOS = document.getElementById('segundos');
 const SPAN_SUCESO = document.getElementById('suceso1');
 const SPAN_SUCESO_DOS = document.getElementById('suceso2');
-// Milliseconds for the calculations
+// Calculo de milisegundos
 const MILISEGUNDOS_SEGUNDO = 1000;
 const MILISEGUNDOS_MINUTO = MILISEGUNDOS_SEGUNDO * 60;
 const MILISEGUNDOS_HORA = MILISEGUNDOS_MINUTO * 60;
@@ -20,14 +21,14 @@ const MILISEGUNDOS_MES = MILISEGUNDOS_DIA * (365/12);
 const MILISEGUNDOS_ANIO = MILISEGUNDOS_MES * 12;
 
 //===
-// FUNCTIONS
+// FUNCIONES
 //===
 
 /**
- * Method that updates the countdown and the sample
+ * Actualiza los datos
  */
 function actualizarDatos() {
-    // Calcs
+    // Calculos
     const HORA = new Date();
     const DIFERENCIA = Math.abs(SIETE_AGOSTO - HORA);
 
@@ -46,7 +47,7 @@ function actualizarDatos() {
     const HORAS_RESTANTES = Math.floor((DIFERENCIA % MILISEGUNDOS_DIA) / MILISEGUNDOS_HORA);
     const MINUTOS_RESTANTES = Math.floor((DIFERENCIA % MILISEGUNDOS_HORA) / MILISEGUNDOS_MINUTO);
     const SEGUNDOS_RESTANTES = Math.floor((DIFERENCIA % MILISEGUNDOS_MINUTO) / MILISEGUNDOS_SEGUNDO);
-    // Thanks Pablo Monteserín (https://pablomonteserin.com/cuenta-regresiva/)
+    // Gracias a Pablo Monteserín (https://pablomonteserin.com/cuenta-regresiva/)
 
     // Render
     SPAN_ANIOS.textContent = ANIOS_RESTANTES;
@@ -61,5 +62,5 @@ function actualizarDatos() {
 // INIT
 //===
 actualizarDatos();
-// Refresh every second
+// Refrescar cada segundo
 setInterval(actualizarDatos, MILISEGUNDOS_SEGUNDO);
